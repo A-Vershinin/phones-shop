@@ -1,19 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux';
+import store, { history } from "./store/index";
+
 import App from './App';
-import rootReducer from './reducers/rootReducer.js';
-import {Provider} from 'react-redux';
-import { createStore, applyMiddleware  } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(rootReducer, composeWithDevTools(
-	applyMiddleware(thunk)
-));
 
+
+/* ConnectedRouter связывает стор и роуты автоматически*/
 ReactDOM.render(
-	<Provider store={store}>
-		<App/>
-	</Provider>,
-	document.getElementById('root')
-);
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App/>
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('root')
+)
