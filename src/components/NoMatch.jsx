@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class NoMatch extends Component {
+class NoMatch extends PureComponent {
   render() {
     return (
      <div>
