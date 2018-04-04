@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware  } from 'redux';
-import { routerMiddleware, routerReducer } from 'react-router-redux';
+import { routerMiddleware } from 'react-router-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers/rootReducer.js';
@@ -9,21 +9,19 @@ import rootReducer from '../reducers/rootReducer.js';
 
 const configureStore = (history) => {
 
-	const middlewares = [
-			thunk,
-			routerMiddleware(history),
-	];
+  const middlewares = [
+    thunk,
+    routerMiddleware(history),
+  ];
 
-	const store = createStore(
-	  rootReducer,
-	  composeWithDevTools(
-	     applyMiddleware(...middlewares)
-	  ),
-	);
+  const store = createStore(
+    rootReducer,
+    composeWithDevTools(
+       applyMiddleware(...middlewares)
+    ),
+  );
 
-
-	return store;
-}
-
+  return store;
+};
 
 export default configureStore;
