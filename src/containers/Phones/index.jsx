@@ -2,9 +2,14 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Phones from '../../components/Phones';
+import { fetchPhones }  from '../../actions/phonesAction';
 
 class PhonesContainer extends PureComponent {
+  componentDidMount() {
+    this.props.fetchPhones();
+  }
   render() {
+    // console.log(this.props)
     return (
       <div>
         <Phones />
@@ -13,10 +18,14 @@ class PhonesContainer extends PureComponent {
   }
 }
 
-function mapStateToProps(state) {
+// const mapStateToProps = (state) => {
+//   phones: state.phones
+// }
+
+const mapStateToDispatch = (dispatch) => {
   return {
-    // routerLocation: state.location
+    fetchPhones: () => dispatch(fetchPhones()),
   };
 }
 
-export default withRouter(connect(mapStateToProps)(PhonesContainer));
+export default withRouter(connect(null, mapStateToDispatch)(PhonesContainer));

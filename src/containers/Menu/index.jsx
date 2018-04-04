@@ -12,7 +12,6 @@ class MenuContainer extends PureComponent {
       </div>
     );
   }
-
 }
 
 

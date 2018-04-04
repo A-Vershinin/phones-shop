@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { withRouter, Switch, Route } from 'react-router-dom';
+import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 
 import Home from './containers/Home/index';
