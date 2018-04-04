@@ -5,10 +5,10 @@ import Layout from '../../components/Layout';
 
 class LayoutContainer extends PureComponent {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
      <div>
-				<Layout/>
+				<Layout />
 			</div>
     );
   }

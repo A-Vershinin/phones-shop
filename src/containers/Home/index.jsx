@@ -5,7 +5,6 @@ import Home from '../../components/Home';
 
 class HomeContainer extends PureComponent {
   render() {
-    console.log(this.props);
     return (
      <div>
 		 		<Home/>

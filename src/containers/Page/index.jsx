@@ -5,7 +5,7 @@ import Page from '../../components/Page';
 
 class PageContainer extends PureComponent {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
      <div>
 		 	<Page/>

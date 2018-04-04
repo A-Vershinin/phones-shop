@@ -1,19 +1,16 @@
 import React, { PureComponent } from 'react';
-import {Link } from 'react-router-dom';
+
+import PageTemplate from './PageTemplate';
 
 class Layout extends PureComponent {
   render() {
+    // const {match} = this.props;
+    // console.log(this.props);
     return (
-      <div>
-        <h1>Layout</h1>
-        <ul>
-          <li>
-            <Link to='/home'>Home page</Link>
-          </li>
-          <li>
-            <Link to='/page'>Page 2</Link>
-          </li>
-        </ul>
+      <div className='containe'>
+        <div className='row'>
+          <PageTemplate/>
+        </div>
       </div>
     );
   }
