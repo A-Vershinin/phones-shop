@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Phones from '../../components/Phones';
-import { fetchPhones }  from '../../actions/phonesAction';
+import { fetchPhonesAction }  from '../../actions/phonesAction';
 
 class PhonesContainer extends PureComponent {
   componentDidMount() {
@@ -24,7 +24,7 @@ class PhonesContainer extends PureComponent {
 
 const mapStateToDispatch = (dispatch) => {
   return {
-    fetchPhones: () => dispatch(fetchPhones()),
+    fetchPhones: () => dispatch(fetchPhonesAction()),
   };
 }
 
