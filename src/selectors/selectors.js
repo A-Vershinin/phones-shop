@@ -9,20 +9,12 @@ const limit = 3;
 
 export const getPhones = state => {
   const phones = Object.values(state.phonesReducer);
-
   const arrays = phones.reduce((a, b) => a.concat(b), []);
-  // const availablePhones = Array.isArray(phones) ? Object.values(phones) : [];
-
   const availablePhones = Array.isArray(arrays) ? arrays : [];
   const slicePhones = availablePhones.slice(0, limit);
-
   const sortPhones = slicePhones.sort((itemA, itemB) => (itemA.id - itemB.id));
-
-  // console.log(phones)
   return sortPhones;
 };
-
-
 
 
 /* добавляем новый метод, который будет возвращать количество отрендереных товаров.*/

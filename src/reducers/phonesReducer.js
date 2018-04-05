@@ -36,15 +36,13 @@ export const phonesReducer = (state = initialState, {type, payload}) => {
         ...state,
         phones: payload
     };
-      // const newValues = R.indexBy(R.prop('id'), payload);
-      // return R.merge(state, newValues);
 
     case LOAD_MORE_PHONES_SUCCESS:
-      // console.log(payload)
-      // const moreValues = R.indexBy(R.prop('id'), payload);
-      // console.log(R.merge(state, moreValues))
-      // return R.merge(state, moreValues);
-
+      console.log(payload)
+      return {
+        ...state,
+        phones: payload
+    };
     default:
       return state;
   }

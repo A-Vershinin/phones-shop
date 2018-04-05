@@ -34,7 +34,6 @@ export const fetchPhonesAction = () => async (dispatch, getState) => {
 
     /* получили объекты из стора*/
     const data = getPhones(getState());
-    // console.log(data)
 
     dispatch({
       type: FETCH_PHONES_SUCCESS,
@@ -53,13 +52,11 @@ export const fetchPhonesAction = () => async (dispatch, getState) => {
 
 export const loadMorePhonesAction = () => async (dispatch, getState) => {
 
-  // console.log( getState())
   const offset = getRenderedPhonesLength(getState())
   dispatch({type: LOAD_MORE_PHONES_START})
 
   try {
     const phones = await loadMorePhonesApi(offset)
-    // console.log("смещение", phones)
 
     dispatch({
       type: LOAD_MORE_PHONES_SUCCESS,
