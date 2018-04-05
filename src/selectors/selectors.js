@@ -5,19 +5,27 @@ import R from 'ramda';
 - отрезаем и показываем первые 6
 - сортируем по id и отдаём в phonesPageReducer
 */
-const limit = 6;
+const limit = 3;
 
 export const getPhones = state => {
   const phones = Object.values(state.phonesReducer);
-  const availablePhones = Array.isArray(phones) ? Object.values(phones) : [];
+
+  const arrays = phones.reduce((a, b) => a.concat(b), []);
+  // const availablePhones = Array.isArray(phones) ? Object.values(phones) : [];
+
+  const availablePhones = Array.isArray(arrays) ? arrays : [];
   const slicePhones = availablePhones.slice(0, limit);
-  slicePhones.sort((itemA, itemB) => (itemA.id - itemB.id));
-  
-  return slicePhones;
+
+  const sortPhones = slicePhones.sort((itemA, itemB) => (itemA.id - itemB.id));
+
+  // console.log(phones)
+  return sortPhones;
 };
 
 
 
 
 /* добавляем новый метод, который будет возвращать количество отрендереных товаров.*/
-// export const getRenderedPhonesLength = state => R.length(state.phonesPage.ids)
+export const getRenderedPhonesLength = state => {
+  return R.length(state.phonesPageReducer.ids)
+}

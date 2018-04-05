@@ -1,6 +1,10 @@
 import { FETCH_PHONES_START, FETCH_PHONES_SUCCESS, FETCH_PHONES_FAILURE, FETCH_PHONES_ONLY,
   LOAD_MORE_PHONES_START, LOAD_MORE_PHONES_SUCCESS, LOAD_MORE_PHONES_FAILURE } from '../constans/phoneActionTypes';
-import {fetchPhones as fetchPhonesApi} from '../api/fetchPhonesApi';
+import {
+  fetchPhones as fetchPhonesApi,
+  loadMorePhones as loadMorePhonesApi
+} from '../api/fetchPhonesApi';
+
 import { getPhones, getRenderedPhonesLength} from '../selectors/selectors';
 
 // export function fetchPhonesErrored(bool) {
@@ -18,23 +22,23 @@ import { getPhones, getRenderedPhonesLength} from '../selectors/selectors';
 //   };
 // }
 
-export const fetchPhonesAction = () => async dispatch => {
+export const fetchPhonesAction = () => async (dispatch, getState) => {
   dispatch({type: FETCH_PHONES_START});
   try {
     const phones = await fetchPhonesApi();
-    // console.log(phones);
 
     dispatch({
       type: FETCH_PHONES_SUCCESS,
       payload: phones
     });
 
-    // console.log('3232', getPhones);
+    /* получили объекты из стора*/
+    const data = getPhones(getState());
+    // console.log(data)
 
-    /* получили первые 6 объектов */
     dispatch({
       type: FETCH_PHONES_SUCCESS,
-      payload: getPhones
+      payload: data
     });
 
   } catch (err) {
@@ -48,13 +52,14 @@ export const fetchPhonesAction = () => async dispatch => {
 
 
 export const loadMorePhonesAction = () => async (dispatch, getState) => {
-  // const offset = getRenderedPhonesLength(getState())
 
-  // console.log("смещение", offset)
-
+  // console.log( getState())
+  const offset = getRenderedPhonesLength(getState())
   dispatch({type: LOAD_MORE_PHONES_START})
+
   try {
-    const phones = await fetchPhonesApi()
+    const phones = await loadMorePhonesApi(offset)
+    // console.log("смещение", phones)
 
     dispatch({
       type: LOAD_MORE_PHONES_SUCCESS,

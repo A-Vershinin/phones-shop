@@ -21,8 +21,11 @@ class PhonesContainer extends PureComponent {
 }
 
 const mapStateToProps = state => {
+  // console.log(state)
   return {
-    phones: state.phonesPageReducer.ids
+    phones: state.phonesPageReducer.ids,
+    // phones: [],
+    // phones: state.phonesReducer.phones,
   }
 }
 

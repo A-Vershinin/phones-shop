@@ -88,5 +88,35 @@ export default [
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB"
-  }
+  },
+  {
+    id: "7",
+    categoryId: "4",
+    name: "Lenovo Viper P2",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies lorem odio, at laoreet tellus sodales in. Nullam maximus eros ut tortor ultricies rutrum. Aliquam euismod lacus non est egesta",
+    price: 285,
+    image: "/uploads/Agnes_Case_for_Samsung_Galaxy_S6_(1)__92643_thumb.jpg",
+    cpu: "1.3GHz MTK 6567",
+    camera: "8mp (3264x2448)",
+    size: "164.4mm x 72.2mm x 8.97mm (4.9 x 2.33 x 0.35)",
+    weight: "155 grams (4.7 ounces) with battery",
+    display: "5.5 326 pixel density",
+    battery: "4280 mAh",
+    memory: "16GB, 32GB and RAM 1 GB"
+  },
+  {
+    id: "3",
+    categoryId: "3",
+    name: "Google Pixel",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies lorem odio, at laoreet tellus sodales in. Nullam maximus eros ut tortor ultricies rutrum. Aliquam euismod lacus non est egesta",
+    price: 554,
+    image: "/uploads/htc-one-m7-802w-dual-sim-silver.jpg",
+    cpu: "1.3GHz Apple A6",
+    camera: "8mp (3264x2448)",
+    size: "124.4mm x 59.2mm x 8.97mm (4.9 x 2.33 x 0.35)",
+    weight: "132 grams (4.7 ounces) with battery",
+    display: "4.0 326 pixel density",
+    battery: "1480 mAh",
+    memory: "16GB, 32GB and RAM 1 GB"
+  },
 ]
