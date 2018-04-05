@@ -1,6 +1,7 @@
 import R from 'ramda';
 import { FETCH_PHONES_START, FETCH_PHONES_SUCCESS, FETCH_PHONES_FAILURE,
-  LOAD_MORE_PHONES_START, LOAD_MORE_PHONES_SUCCESS, LOAD_MORE_PHONES_FAILURE } from '../constans/phoneActionTypes';
+  LOAD_MORE_PHONES_START, LOAD_MORE_PHONES_SUCCESS, LOAD_MORE_PHONES_FAILURE,
+  FETCH_PHONE_BY_ID_SUCCESS } from '../constans/phoneActionTypes';
 
 
 
@@ -38,11 +39,14 @@ export const phonesReducer = (state = initialState, {type, payload}) => {
     };
 
     case LOAD_MORE_PHONES_SUCCESS:
-      console.log(payload)
       return {
         ...state,
         phones: payload
     };
+
+    case FETCH_PHONE_BY_ID_SUCCESS:
+      return R.assoc(payload.id, payload, state)
+
     default:
       return state;
   }

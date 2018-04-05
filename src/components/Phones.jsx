@@ -30,7 +30,8 @@ class Phones extends PureComponent {
 
   render() {
     const { phones, loadMorePhones } = this.props;
-    // console.log('phones', loadMorePhones);
+    // console.log(this.props);
+
     return (
       <PageTemplate>
         <h1>Phones components</h1>

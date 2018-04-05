@@ -1,4 +1,3 @@
-import R from 'ramda';
 import { FETCH_PHONES_SUCCESS, LOAD_MORE_PHONES_SUCCESS } from '../constans/phoneActionTypes';
 
 
@@ -20,6 +19,8 @@ export const phonesPageReducer = (state = initialState, action) => {
         ...state,
         ids: [...state.ids, ...action.payload]
       };
+
+
     default:
       return state;
   }
