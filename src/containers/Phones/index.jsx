@@ -1,31 +1,36 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import Phones from '../../components/Phones';
-import { fetchPhonesAction }  from '../../actions/phonesAction';
+import { fetchPhonesAction, loadMorePhonesAction }  from '../../actions/phonesAction';
+import { getPhones } from '../../selectors/selectors';
 
 class PhonesContainer extends PureComponent {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchPhones();
   }
+
   render() {
-    // console.log(this.props)
+    // console.log(this.props);
     return (
       <div>
-        <Phones />
+        <Phones {...this.props}/>
       </div>
     );
   }
 }
 
-// const mapStateToProps = (state) => {
-//   phones: state.phones
-// }
+const mapStateToProps = state => {
+  return {
+    phones: state.phonesPageReducer.ids
+  }
+}
 
 const mapStateToDispatch = (dispatch) => {
   return {
     fetchPhones: () => dispatch(fetchPhonesAction()),
+    loadMorePhones: () => dispatch(loadMorePhonesAction()),
   };
-}
+};
 
-export default withRouter(connect(null, mapStateToDispatch)(PhonesContainer));
+export default withRouter(connect(mapStateToProps, mapStateToDispatch)(PhonesContainer));

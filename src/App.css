@@ -19,8 +19,9 @@
     margin: -32px 0 0 -32px;
 }
 
-.view-container{
-    margin-top:20px;
+.view-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .cart-order{
     margin:0 auto;
@@ -94,6 +95,8 @@
     color: #d17581;
 }
 .itemButton{
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
     text-align: center;
 }
@@ -409,12 +412,17 @@ nav.navbar-inverse .navbar-nav>li>a:hover,nav.navbar-inverse .navbar-nav>li>a.Ac
 }
 
 .caption {
-    height: 130px;
-    overflow: hidden;
+    /* height: 130px; */
+    /* overflow: hidden; */
 }
 
 .caption h4 {
+    /* white-space: nowrap; */
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
+
 }
 
 .thumbnail img {

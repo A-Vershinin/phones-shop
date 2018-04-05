@@ -1,7 +1,7 @@
+import R from 'ramda';
 import { FETCH_PHONES_START, FETCH_PHONES_SUCCESS, FETCH_PHONES_FAILURE } from '../constans/phoneActionTypes';
 
-const initialState = {
-};
+
 
 // export function fetchPhonesErrored(state = false, action) {
 // 	switch (action.type) {
@@ -23,47 +23,22 @@ const initialState = {
 // 			return state;
 // 	}
 // }
+const initialState = {
+};
 
 /* загружаем все телефоны с разных источников*/
-export const phonesReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case FETCH_PHONES_START:
-      return true;
-
-    case FETCH_PHONES_FAILURE:
-      return false;
-
+export const phonesReducer = (state = initialState, {type, payload}) => {
+  switch (type) {
     case FETCH_PHONES_SUCCESS:
-      return [
-        ...state,
-        {
-         id: action.payload.id
-        }
-      ]
+      // return [
+      //   ...state,
+      //   {
+      //   id: action.payload.id
+      // }
+      // ];
+      const newValues = R.indexBy(R.prop('id'), payload);
+      return R.merge(state, newValues);
     default:
       return state;
   }
 };
-
-/* В этом редюсере будем хранить все данные, относящиеся к странице телефонов,
-но которые на других страницах нам не пригодятся.*/
-const initialStateIds = {
-  ids: []
-}
-
-export const phonesPageReducer = (state = initialStateIds, action) => {
-  switch (action.type) {
-    case FETCH_PHONES_SUCCESS:
-      return [
-        ...state,
-        {
-         id: action.payload.id
-        }
-      ]
-     // return R.merge(state, {
-     //   ids: R.pluck('id', payload)
-     // })
-    default:
-      return state;
-  }
-}
