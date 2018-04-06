@@ -8,17 +8,13 @@ class Search extends PureComponent {
         <h3 className='lead'>Quick shop</h3>
         <div className='input-group'>
           <form onSubmit={handleSubmit}>
-            <input
-              onChange={handleChange}
-              type='text'
-              className='form-control'
-            />
+            <input onChange={handleChange} type='text' className='form-control'/>
           </form>
           <span className='input-group-btn'>
-          <button className='btn btn-default'>
-            <span className='glyphicon glyphicon-search'/>
-          </button>
-        </span>
+            <button className='btn btn-default'>
+              <span className='glyphicon glyphicon-search'/>
+            </button>
+          </span>
         </div>
       </div>
     )

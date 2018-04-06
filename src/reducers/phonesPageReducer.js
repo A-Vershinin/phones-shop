@@ -1,10 +1,12 @@
 import { FETCH_PHONES_SUCCESS, LOAD_MORE_PHONES_SUCCESS } from '../constans/phoneActionTypes';
-
+import { SEARCH_PHONE } from '../constans/searchActionTypes';
+import R from 'ramda';
 
 /* В этом редюсере будем хранить все данные, относящиеся к странице телефонов,
 но которые на других страницах нам не пригодятся.*/
 const initialState = {
-  ids: []
+  ids: [],
+  search: '',
 };
 
 export const phonesPageReducer = (state = initialState, action) => {
@@ -19,8 +21,11 @@ export const phonesPageReducer = (state = initialState, action) => {
         ...state,
         ids: [...state.ids, ...action.payload]
       };
-
-
+    case SEARCH_PHONE:
+      // console.log(action)
+      return R.merge(state, {
+        search: action.payload
+    })
     default:
       return state;
   }
