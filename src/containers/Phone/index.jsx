@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import Phone from '../../components/Phone';
 import { fetchPhoneById } from '../../actions/phonesAction';
+import { getPhoneById } from '../../selectors/selectors';
 
 class PhoneContainer extends PureComponent {
   componentDidMount () {
@@ -11,9 +12,7 @@ class PhoneContainer extends PureComponent {
   }
 
   render() {
-    console.log(this.props)
-    const { match } = this.props;
-
+    // console.log(this.props)
     // console.log(this.props.match.params.id)
     return (
       <div>
@@ -23,6 +22,11 @@ class PhoneContainer extends PureComponent {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    phone: getPhoneById(state, state.phonePageReducer.id),
+  }
+}
 
 const mapStateToDispatch = (dispatch) => {
   return {
@@ -30,4 +34,4 @@ const mapStateToDispatch = (dispatch) => {
   };
 };
 
-export default withRouter(connect(null, mapStateToDispatch)(PhoneContainer));
+export default withRouter(connect(mapStateToProps, mapStateToDispatch)(PhoneContainer));

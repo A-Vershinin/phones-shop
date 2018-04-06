@@ -21,3 +21,7 @@ export const getPhones = state => {
 export const getRenderedPhonesLength = state => {
   return R.length(state.phonesPageReducer.ids)
 }
+
+export const getPhoneById = (state, id) => {
+  return R.prop(id, state.phonesReducer)
+}
