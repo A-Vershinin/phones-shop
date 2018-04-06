@@ -13,11 +13,7 @@ class PhonesContainer extends PureComponent {
 
   render() {
     // console.log(this.props);
-    return (
-      <div>
-        <Phones {...this.props}/>
-      </div>
-    );
+    return (<Phones {...this.props}/>);
   }
 }
 
