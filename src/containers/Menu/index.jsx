@@ -8,7 +8,7 @@ class MenuContainer extends PureComponent {
   render() {
     return (
       <div>
-        <Menu />
+        <Menu {...this.props}/>
       </div>
     );
   }

@@ -8,7 +8,7 @@ class LayoutContainer extends PureComponent {
     // console.log(this.props);
     return (
      <div>
-				<Layout />
+				<Layout {...this.props}/>
 			</div>
     );
   }

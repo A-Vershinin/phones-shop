@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import Phones from '../../components/Phones';
 import { fetchPhonesAction, loadMorePhonesAction }  from '../../actions/phonesAction';
+import { addPhoneToBasketAction } from '../../actions/basketAction';
 import { getPhones } from '../../selectors/selectors';
 
 class PhonesContainer extends PureComponent {
@@ -30,6 +31,7 @@ const mapStateToDispatch = (dispatch) => {
   return {
     fetchPhones: () => dispatch(fetchPhonesAction()),
     loadMorePhones: () => dispatch(loadMorePhonesAction()),
+    addPhoneToBasket: (id) => dispatch(addPhoneToBasketAction(id)),
   };
 };
 

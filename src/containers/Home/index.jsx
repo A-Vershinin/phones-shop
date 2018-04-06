@@ -7,7 +7,7 @@ class HomeContainer extends PureComponent {
   render() {
     return (
      <div>
-		 		<Home/>
+		 		<Home {...this.props}/>
 		 </div>
     );
   }

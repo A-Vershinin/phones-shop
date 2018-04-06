@@ -23,5 +23,29 @@ export const getRenderedPhonesLength = state => {
 }
 
 export const getPhoneById = (state, id) => {
-  return R.prop(id, state.phonesReducer)
+  const arrayToObject = (array, keyField) =>
+   array.reduce((obj, item) => {
+     obj[item[keyField]] = item
+     return obj
+   }, {})
+  const phonesObject = arrayToObject(state.phonesReducer.phones, "id")
+  return R.prop(id, phonesObject)
+}
+
+
+/* Считает общее количество товаров в корзине. Берём length от массива id-шников в корзине*/
+export const getTotalBasketCount = state => {
+  return R.length(state.basketReducer)
+}
+
+
+/* Находит все телефоны по id-шникам в корзине и берет из каждого обьекта только цену и
+потом суммируем ее с помощью метода sum.*/
+export const getTotalBasketPrice = state => {
+  const totalPrice = R.compose(
+    R.sum,
+    R.pluck('price'),
+    R.map(id => getPhoneById(state, id))
+  )(state.basketReducer)
+  return totalPrice;
 }

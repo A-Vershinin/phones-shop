@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import SideBarContainer from '../containers/SideBar/index';
+import SideBarContainer from '../containers/SideBar/index.jsx';
 import MenuContainer from '../containers/Menu/index';
 
 class PageTemplate extends PureComponent {

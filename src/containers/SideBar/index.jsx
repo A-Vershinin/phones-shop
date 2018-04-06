@@ -6,18 +6,13 @@ import SideBar from '../../components/SideBar';
 
 class SideBarContainer extends PureComponent {
   render() {
-    return (
-      <div>
-        <SideBar/>
-      </div>
-    );
+    return (<SideBar/>);
   }
-
 }
 
 function mapStateToProps(state) {
   return {
-  
+
   };
 }
 

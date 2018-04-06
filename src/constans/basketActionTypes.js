@@ -1,0 +1,2 @@
+
+export const ADD_PHONE_TO_BASKET = 'ADD_PHONE_TO_BASKET';

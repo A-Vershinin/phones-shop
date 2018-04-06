@@ -8,7 +8,7 @@ class PageContainer extends PureComponent {
     // console.log(this.props);
     return (
      <div>
-		 	<Page/>
+		 	<Page {...this.props}/>
 		 </div>
     );
   }
