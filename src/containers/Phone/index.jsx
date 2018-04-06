@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import Phone from '../../components/Phone';
 import { fetchPhoneById } from '../../actions/phonesAction';
+import { addPhoneToBasketAction } from '../../actions/basketAction';
 import { getPhoneById } from '../../selectors/selectors';
 
 class PhoneContainer extends PureComponent {
@@ -13,7 +14,6 @@ class PhoneContainer extends PureComponent {
 
   render() {
     // console.log(this.props)
-    // console.log(this.props.match.params.id)
     return (
       <div>
         <Phone {...this.props}/>
@@ -30,7 +30,8 @@ const mapStateToProps = state => {
 
 const mapStateToDispatch = (dispatch) => {
   return {
-    fetchPhoneById: (id) => dispatch(fetchPhoneById(id))
+    fetchPhoneById: (id) => dispatch(fetchPhoneById(id)),
+    addPhoneToBasket: (id) => dispatch(addPhoneToBasketAction(id)),
   };
 };
 
