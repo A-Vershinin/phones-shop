@@ -23,17 +23,27 @@ class Categories extends PureComponent {
    )
   }
 
+  /*  добавляет ссылку 'Все товары'', чтобы была возможность перейти на домашнюю страницу.*/
+  renderAllCategory = () => {
+    const linkClass = classNames({
+      'list-group-item': true,
+      'active': R.isNil(this.props.activeCategoryId)
+    })
+
+    return (
+      <Link to='/phones' className={linkClass}>All</Link>
+    )
+  }
+
   render() {
     const { categories, activeCategoryId } = this.props;
     // console.log(this.props)
-    // console.log('activeCategoryId', activeCategoryId)
-
-
 
     return (
       <div className='well'>
         <h4>Brand</h4>
         <div className='list-group'>
+          {this.renderAllCategory()}
           {categories.map((category, index) => this.renderCategory(category, index))}
         </div>
       </div>
