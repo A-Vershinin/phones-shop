@@ -54,3 +54,8 @@ export const getTotalBasketPrice = state => {
 export const getCategories = state => {
   return R.values(state.categoriesReducer)
 }
+
+/* Получает id-ки из собственных пропсов из match*/
+export const getActiveCategoryId = ownProps => {
+  return ownProps.match.params.id;
+}
