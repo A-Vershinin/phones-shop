@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react';
 import R from 'ramda';
 
-
 class Basket extends PureComponent {
   render() {
-    const { totalPrice, phones} = this.props;
+    const { totalPrice, phones, removePhoneFromBasket } = this.props;
     const isBasketEmpty = R.isEmpty(phones)
-
+    // console.log(this.props)
     const renderContent = () => {
       return (
         <div>
@@ -22,7 +21,7 @@ class Basket extends PureComponent {
                   <td>{phone.name}</td>
                   <td>${phone.price}</td>
                   <td>{phone.count}</td>
-                  <td><span className='delete-cart'/></td>
+                  <td><span className='delete-cart' onClick={() => removePhoneFromBasket(phone.id)}/></td>
                 </tr>
               ))}
               </tbody>
