@@ -18,6 +18,7 @@ class App extends PureComponent {
             <Route path='/home' component={Home} />
             <Route path='/page' component={Page} />
             <Route exact path='/phones' component={Phones} />
+            <Route path='/categories/:id' component={Phone} />
             <Route path='/phones/:id' component={Phone} />
             <Route path='*' component={NoMatch} />
           </Switch>

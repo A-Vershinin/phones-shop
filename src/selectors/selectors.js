@@ -12,8 +12,8 @@ export const getPhones = state => {
   const arrays = phones.reduce((a, b) => a.concat(b), []);
   const availablePhones = Array.isArray(arrays) ? arrays : [];
   const slicePhones = availablePhones.slice(0, limit);
-  const sortPhones = slicePhones.sort((itemA, itemB) => (itemA.id - itemB.id));
-  return sortPhones;
+  // const sortPhones = slicePhones.sort((itemA, itemB) => (itemA.id - itemB.id));
+  return slicePhones;
 };
 
 

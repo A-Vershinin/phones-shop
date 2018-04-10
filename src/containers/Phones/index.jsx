@@ -4,11 +4,13 @@ import { withRouter, Link } from 'react-router-dom';
 import Phones from '../../components/Phones';
 import { fetchPhonesAction, loadMorePhonesAction }  from '../../actions/phonesAction';
 import { addPhoneToBasketAction } from '../../actions/basketAction';
+import { fetchCategoriesAction } from '../../actions//categoriesAction.js';
 import { getPhones } from '../../selectors/selectors';
 
 class PhonesContainer extends PureComponent {
   componentWillMount() {
     this.props.fetchPhones();
+    this.props.fetchCategories();
   }
 
   render() {
@@ -26,6 +28,7 @@ const mapStateToProps = state => {
 const mapStateToDispatch = (dispatch) => {
   return {
     fetchPhones: () => dispatch(fetchPhonesAction()),
+    fetchCategories: () => dispatch(fetchCategoriesAction()),
     loadMorePhones: () => dispatch(loadMorePhonesAction()),
     addPhoneToBasket: (id) => dispatch(addPhoneToBasketAction(id)),
   };
