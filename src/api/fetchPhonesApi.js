@@ -13,7 +13,7 @@ export const fetchPhones = async () => {
       return response;
     })
     .then((response) => response.json())
-    .then(data => {console.log("phones c API", data); resolve(data.phones)})
+    .then(data => {resolve(data.phones)})
   });
 
   // return new Promise(resolve => {

@@ -4,7 +4,7 @@ import './App.css';
 
 import Home from './containers/Home/index';
 import Layout from './containers/Layout/index';
-import Page from './containers/Page/index';
+import Contacs from './components/Contacs';
 import Phones from './containers/Phones/index';
 import Phone from './containers/Phone/index';
 import Basket from './containers/Basket/index';
@@ -16,11 +16,10 @@ class App extends PureComponent {
       <div>
           <Switch>
             <Route exact path='/' component={Layout} />
-            <Route path='/home' component={Home} />
-            <Route path='/page' component={Page} />
             <Route path='/categories/:id' component={Phones} />
             <Route exact path='/phones' component={Phones} />
             <Route path='/phones/:id' component={Phone} />
+            <Route path='/contacs' component={Contacs} />
             <Route path='/basket' component={Basket} />
             <Route path='*' component={NoMatch} />
           </Switch>
@@ -30,3 +29,4 @@ class App extends PureComponent {
 }
 
 export default withRouter(App);
+// <Route path='/home' component={Home} />

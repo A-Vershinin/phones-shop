@@ -10,7 +10,7 @@ class Phones extends PureComponent {
     const numberSymbolsInString = 85;
   	const shortDescription = `${R.take(numberSymbolsInString, phone.description)}...`;
 
-  	return (<div className='col-sm-4 col-lg-4 col-md-4 book-list' key={index}>
+  	return (<div className='col-xs-6 col-sm-4 col-lg-4 col-md-4 book-list' key={index}>
   		<div className='thumbnail'>
   			<img className='img-thumbnail' src={phone.image} alt={phone.name}/>
   			<div className='caption'>
@@ -32,8 +32,7 @@ class Phones extends PureComponent {
 
   render() {
     const { phones, loadMorePhones } = this.props;
-    // console.log(this.props);
-
+    
     return (
       <PageTemplate>
         <h1>Phones components</h1>
