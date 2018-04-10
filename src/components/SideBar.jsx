@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 import BasketCartContainer from '../containers/BasketCart/index';
 import SearchContainer from '../containers/Search/index';
-
+import CategoriesContainer from '../containers/Categories/index';
 
 class SideBar extends PureComponent {
   render() {
@@ -10,6 +10,7 @@ class SideBar extends PureComponent {
       <div>
         <BasketCartContainer />
         <SearchContainer />
+        <CategoriesContainer/>
       </div>
     );
   }

@@ -49,3 +49,8 @@ export const getTotalBasketPrice = state => {
   )(state.basketReducer)
   return totalPrice;
 }
+
+/* Получает все категории */
+export const getCategories = state => {
+  return R.values(state.categoriesReducer)
+}
