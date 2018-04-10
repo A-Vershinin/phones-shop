@@ -1,10 +1,24 @@
 import R from 'ramda';
 import phones from './mockPhones';
 
+const phonesUrl = 'http://www.mocky.io/v2/5accd2a73200005c00776564';
+
 export const fetchPhones = async () => {
-  return new Promise(resolve => {
-    resolve(phones);
+  return new Promise((resolve, reject) => {
+    fetch(phonesUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response;
+    })
+    .then((response) => response.json())
+    .then(data => {console.log("phones c API", data); resolve(data.phones)})
   });
+
+  // return new Promise(resolve => {
+  //   resolve(phones);
+  // });
 };
 
 
