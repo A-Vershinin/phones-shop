@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 class BasketCart extends PureComponent {
   render() {
-    const {totalBasketCount, totalPrice} = this.props;
-    // console.log('BasketCart', totalBasketCount, totalPrice)
+    const {totalBasketCount, totalPrice } = this.props;
+
     return (
       <div className='cart'>
         <div className='dropdown'>

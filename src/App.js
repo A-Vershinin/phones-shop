@@ -7,6 +7,7 @@ import Layout from './containers/Layout/index';
 import Page from './containers/Page/index';
 import Phones from './containers/Phones/index';
 import Phone from './containers/Phone/index';
+import Basket from './containers/Basket/index';
 import NoMatch from './components/NoMatch';
 
 class App extends PureComponent {
@@ -20,6 +21,7 @@ class App extends PureComponent {
             <Route path='/categories/:id' component={Phones} />
             <Route exact path='/phones' component={Phones} />
             <Route path='/phones/:id' component={Phone} />
+            <Route path='/basket' component={Basket} />
             <Route path='*' component={NoMatch} />
           </Switch>
       </div>

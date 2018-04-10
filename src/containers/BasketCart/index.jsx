@@ -13,7 +13,7 @@ class BasketCartContainer extends PureComponent {
 const mapStateToProps = state => {
   return {
     totalBasketCount: getTotalBasketCount(state),
-    totalPrice: getTotalBasketPrice(state),
+    totalPrice: getTotalBasketPrice(state)
   }
 }
 

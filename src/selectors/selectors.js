@@ -55,6 +55,28 @@ export const getTotalBasketPrice = state => {
   return totalPrice;
 }
 
+/*получает список телефонов, сгруппированых по id и имеющих общее количество каждого товара*/
+export const getBasketPhonesWithCount = state => {
+
+  // фильтрует все idшники в basket по текущему id и находит их количество.
+  const phoneCount = id => R.compose(
+    R.length,
+    R.filter(basketId => R.equals(id, basketId))
+  )(state.basketReducer);
+
+  // добавляет отфлитрованным телефонам каждому итему поле count
+  const phoneWithCount = phone => R.assoc('count', phoneCount(phone.id), phone);
+
+  // находит уникальные idшников из корзины и получает все телефоны по ним
+  const uniqueIds = R.uniq(state.basketReducer)
+   const phones = R.compose(
+     R.map(phoneWithCount),
+     R.map(id => getPhoneById(state, id))
+   )(uniqueIds)
+  return phones
+}
+
+
 /* Получает все категории */
 export const getCategories = state => {
   return R.values(state.categoriesReducer)
@@ -66,26 +88,28 @@ export const getActiveCategoryId = ownProps => {
 }
 
 /* Правильная функция getPhones*/
+/*
 export const getPhones = state => {
   const activeCategoryId = getActiveCategoryId(ownProps);
 
-  /*фильтр - поиск из search*/
+  // фильтр - поиск из search
   const applySearch = item => R.contains(
     state.phonesPageReducer.search,
     R.prop('name', item)
   )
 
-  /*фильтр - сортироврка по категориям.*/
+  // фильтр - сортироврка по категориям.
   const applyCategory = item => R.equals(
     getActiveCategoryId(ownProps),
     R.prop('categoryId', item)
   )
 
-  /* приминяем все фильтры и используем map*/
+  // приминяем все фильтры и используем map
   const phones = R.compose(
     R.filter(applySearch),
-    R.when(R.always(activeCategoryId), R.filter(applyCategory))б
+    R.when(R.always(activeCategoryId), R.filter(applyCategory)),
     R.map(id => getPhoneById(state, id))
   )(state.phonesPageReducer.ids)
   return phones
 }
+*/
