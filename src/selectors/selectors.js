@@ -1,27 +1,5 @@
 import R from 'ramda';
 
-/* Из главного редюсера phonesReducer, где храняться все телефоны:
-- вытаскиваем все телефоны,
-- отрезаем и показываем первые 6
-- сортируем по id и отдаём в phonesPageReducer
-*/
-const limit = 3;
-
-export const getPhones = state => {
-  const phones = Object.values(state.phonesReducer);
-  const arrays = phones.reduce((a, b) => a.concat(b), []);
-  const availablePhones = Array.isArray(arrays) ? arrays : [];
-  const slicePhones = availablePhones.slice(0, limit);
-  // const sortPhones = slicePhones.sort((itemA, itemB) => (itemA.id - itemB.id));
-  return slicePhones;
-};
-
-
-/* добавляем новый метод, который будет возвращать количество отрендереных товаров.*/
-export const getRenderedPhonesLength = state => {
-  return R.length(state.phonesPageReducer.ids)
-}
-
 export const getPhoneById = (state, id) => {
   const arrayToObject = (array, keyField) =>
    array.reduce((obj, item) => {
@@ -32,12 +10,39 @@ export const getPhoneById = (state, id) => {
   return R.prop(id, phonesObject)
 }
 
+// export const getPhoneById = (state, id) => R.prop(id, state.phonesReducer.phones);
+
+
+/* Из главного редюсера phonesReducer, где храняться все телефоны:
+- вытаскиваем все телефоны,
+- отрезаем и показываем первые 6
+- сортируем по id и отдаём в phonesPageReducer
+*/
+const limit = 3;
+
+export const getPhones = (state, ownProps) => {
+  const phones = Object.values(state.phonesReducer);
+  const arrays = phones.reduce((a, b) => a.concat(b), []);
+  const availablePhones = Array.isArray(arrays) ? arrays : [];
+  const slicePhones = availablePhones.slice(0, limit);
+  // const sortPhones = slicePhones.sort((itemA, itemB) => (itemA.id - itemB.id));
+
+  // const phonesComplete = R.map(id => getPhoneById(state, id), state.phonesPageReducer.ids)
+  // console.log(phonesComplete)
+
+  return slicePhones;
+};
+
+
+/* добавляем новый метод, который будет возвращать количество отрендереных товаров.*/
+export const getRenderedPhonesLength = state => {
+  return R.length(state.phonesPageReducer.ids)
+}
 
 /* Считает общее количество товаров в корзине. Берём length от массива id-шников в корзине*/
 export const getTotalBasketCount = state => {
   return R.length(state.basketReducer)
 }
-
 
 /* Находит все телефоны по id-шникам в корзине и берет из каждого обьекта только цену и
 потом суммируем ее с помощью метода sum.*/
@@ -58,4 +63,29 @@ export const getCategories = state => {
 /* Получает id-ки из собственных пропсов из match*/
 export const getActiveCategoryId = ownProps => {
   return ownProps.match.params.id;
+}
+
+/* Правильная функция getPhones*/
+export const getPhones = state => {
+  const activeCategoryId = getActiveCategoryId(ownProps);
+
+  /*фильтр - поиск из search*/
+  const applySearch = item => R.contains(
+    state.phonesPageReducer.search,
+    R.prop('name', item)
+  )
+
+  /*фильтр - сортироврка по категориям.*/
+  const applyCategory = item => R.equals(
+    getActiveCategoryId(ownProps),
+    R.prop('categoryId', item)
+  )
+
+  /* приминяем все фильтры и используем map*/
+  const phones = R.compose(
+    R.filter(applySearch),
+    R.when(R.always(activeCategoryId), R.filter(applyCategory))б
+    R.map(id => getPhoneById(state, id))
+  )(state.phonesPageReducer.ids)
+  return phones
 }

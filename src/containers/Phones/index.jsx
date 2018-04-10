@@ -14,14 +14,15 @@ class PhonesContainer extends PureComponent {
   }
 
   render() {
-    // console.log(this.props);
     return (<Phones {...this.props}/>);
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  // console.log(state)
   return {
     phones: state.phonesPageReducer.ids,
+    // phones: getPhones(state, ownProps),
   }
 }
 
