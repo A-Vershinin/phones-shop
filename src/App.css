@@ -260,6 +260,9 @@
     margin-bottom: 10px;
     width: 100%;
 }
+.btn-icon-margin {
+  margin-right: 10px;
+}
 .item-checout .delete-cart{
     display: block;
     margin: 0 auto;

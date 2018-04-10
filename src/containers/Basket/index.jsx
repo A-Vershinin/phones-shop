@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Basket from '../../components/Basket';
-import { removePhoneFromBasket } from '../../actions/basketAction';
+import { removePhoneFromBasket, basketCheckout, cleanBasket } from '../../actions/basketAction';
 import { getTotalBasketPrice, getBasketPhonesWithCount } from '../../selectors/selectors';
 
 
@@ -21,7 +21,9 @@ const mapStateToProps = state => {
 
 const mapStateToDispatch = (dispatch) => {
   return {
-    removePhoneFromBasket: (id) => dispatch(removePhoneFromBasket(id))
+    removePhoneFromBasket: (id) => dispatch(removePhoneFromBasket(id)),
+    basketCheckout: (phones) => dispatch(basketCheckout(phones)),
+    cleanBasket: () => dispatch(cleanBasket())
   };
 };
 

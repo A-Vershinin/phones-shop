@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 import R from 'ramda';
 
 class Basket extends PureComponent {
   render() {
-    const { totalPrice, phones, removePhoneFromBasket } = this.props;
+    const { totalPrice, phones, removePhoneFromBasket, cleanBasket, basketCheckout } = this.props;
     const isBasketEmpty = R.isEmpty(phones)
     // console.log(this.props)
     const renderContent = () => {
@@ -39,8 +40,24 @@ class Basket extends PureComponent {
     }
 
     const renderSidebar = () => (
-      <div>Sidebar</div>
-    )
+     <div>
+       <Link className='btn btn-info' to='/phones'>
+         <span className='glyphicon glyphicon-info-sign btn-icon-margin'/>
+         <span>Continue shopping!</span>
+       </Link>
+       {
+         R.not(isBasketEmpty) &&
+         <div>
+           <button onClick={cleanBasket} className='btn btn-danger'>
+             <span className='glyphicon glyphicon-trash btn-icon-margin' />Clear cart
+           </button>
+           <button className='btn btn-success' onClick={() => basketCheckout(phones)} >
+             <span className='glyphicon glyphicon-envelope btn-icon-margin' />Checkout
+           </button>
+         </div>
+       }
+     </div>
+   )
 
     return (
       <div className='view-container'>

@@ -1,6 +1,6 @@
 import R from 'ramda';
 
-import { ADD_PHONE_TO_BASKET, REMOVE_PHONE_FROM_BASKET } from '../constans/basketTypes';
+import { ADD_PHONE_TO_BASKET, REMOVE_PHONE_FROM_BASKET, CLEAN_BASKET } from '../constans/basketTypes';
 
 const initialState = []
 
@@ -12,8 +12,10 @@ const basketReducer = (state = initialState, {type, payload}) => {
       return R.append(payload, state)
 
     case REMOVE_PHONE_FROM_BASKET:
-      console.log(state)
       return R.without(R.of(payload), state)
+
+    case CLEAN_BASKET:
+      return []
 
     default:
       return state
