@@ -27,10 +27,10 @@ export const fetchPhonesAction = () => async (dispatch, getState) => {
 
   } catch (err) {
     dispatch({
-        type: FETCH_PHONES_FAILURE,
-        payload: err,
-        error: true
-      });
+      type: FETCH_PHONES_FAILURE,
+      payload: err,
+      error: true
+    });
   }
 };
 
