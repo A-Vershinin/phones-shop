@@ -17,9 +17,9 @@ class Menu extends PureComponent {
 		    </div>
 		    <div className="collapse navbar-collapse" id="#navbar-collapse-1">
 		      <ul className="nav navbar-nav">
-
+						<li><NavLink to="/phones" activeClassName='active-item'>Catalog</NavLink></li>
+						<li><NavLink to="/home" activeClassName='active-item'>Home</NavLink></li>
 		        <li><NavLink to='/contacs' activeClassName='active-item'>Contacs</NavLink></li>
-		        <li><NavLink to="/phones" activeClassName='active-item'>Phones inner</NavLink></li>
 		      </ul>
 		    </div>
 			</nav>
@@ -28,3 +28,4 @@ class Menu extends PureComponent {
 }
 
 export default Menu;
+// activeClassName='active-item'
