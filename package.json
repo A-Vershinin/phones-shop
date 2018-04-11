@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chai": "^4.1.2",
     "classnames": "^2.2.5",
+    "fetch-mock": "^6.3.0",
     "history": "^4.7.2",
+    "karma-coverage": "^1.1.1",
+    "moch": "0.0.1",
     "ramda": "^0.23.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
@@ -14,7 +18,8 @@
     "react-scripts": "1.1.2",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "sinon": "^4.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
