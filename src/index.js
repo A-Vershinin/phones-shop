@@ -8,6 +8,7 @@ import configureStore from './store/index';
 
 import App from './App';
 
+
 const history = createHistory();
 
 const initialState = {};
