@@ -14,10 +14,9 @@ class CategoriesContainer extends PureComponent {
 /* вторым параметром в mapStateToProps берём ownProps,
 которые содержат в себе id категории из url.*/
 function mapStateToProps (state, ownProps) {
-	// console.log(ownProps)
   return {
 		categories: getCategories(state),
-		activeCategoryId: getActiveCategoryId(ownProps)
+		activeCategoryId: getActiveCategoryId(ownProps),
   }
 }
 

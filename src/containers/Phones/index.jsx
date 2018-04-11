@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Phones from '../../components/Phones';
 import { fetchPhonesAction, loadMorePhonesAction }  from '../../actions/phonesAction';
 import { addPhoneToBasketAction } from '../../actions/basketAction';
@@ -19,10 +19,9 @@ class PhonesContainer extends PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(state)
+  // console.log(getPhones(state, ownProps))
   return {
-    phones: state.phonesPageReducer.ids,
-    // phones: getPhones(state, ownProps),
+    phones: getPhones(state, ownProps),
   }
 }
 

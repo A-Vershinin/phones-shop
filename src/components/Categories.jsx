@@ -36,8 +36,7 @@ class Categories extends PureComponent {
   }
 
   render() {
-    const { categories, activeCategoryId } = this.props;
-    // console.log(this.props)
+    const { categories } = this.props;
 
     return (
       <div className='well'>

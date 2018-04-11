@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 
-import Home from './containers/Home/index';
+// import Home from './containers/Home/index';
 import Layout from './containers/Layout/index';
 import Contacs from './components/Contacs';
 import Phones from './containers/Phones/index';
@@ -29,4 +29,3 @@ class App extends PureComponent {
 }
 
 export default withRouter(App);
-// <Route path='/home' component={Home} />

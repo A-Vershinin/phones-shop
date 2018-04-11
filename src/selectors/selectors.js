@@ -1,38 +1,40 @@
 import R from 'ramda';
 
-export const getPhoneById = (state, id) => {
-  const arrayToObject = (array, keyField) =>
-   array.reduce((obj, item) => {
-     obj[item[keyField]] = item
-     return obj
-   }, {})
-  const phonesObject = arrayToObject(state.phonesReducer.phones, "id")
-  return R.prop(id, phonesObject)
-}
-
-// export const getPhoneById = (state, id) => R.prop(id, state.phonesReducer.phones);
-
-
-/* Из главного редюсера phonesReducer, где храняться все телефоны:
-- вытаскиваем все телефоны,
-- отрезаем и показываем первые 6
-- сортируем по id и отдаём в phonesPageReducer
+/* Описание
+  phonesReducer - общий редюсер для всех объектов phones в магазине;
+  phonesPageReducer - редюсер для показа телефонов на одной странице;
 */
-const limit = 3;
 
+// возвращает объект phone по переданому id
+export const getPhoneById = (state, id) => R.prop(id, state.phonesReducer);
+
+// возвращает массив объектов phones
 export const getPhones = (state, ownProps) => {
-  const phones = Object.values(state.phonesReducer);
-  const arrays = phones.reduce((a, b) => a.concat(b), []);
-  const availablePhones = Array.isArray(arrays) ? arrays : [];
-  const slicePhones = availablePhones.slice(0, limit);
-  // const sortPhones = slicePhones.sort((itemA, itemB) => (itemA.id - itemB.id));
 
-  // const phonesComplete = R.map(id => getPhoneById(state, id), state.phonesPageReducer.ids)
-  // console.log(phonesComplete)
+  // фильтр - поиск по строке из search
+  const applySearch = item => R.contains(
+    state.phonesPageReducer.search,
+    R.prop('name', item)
+  )
 
-  return slicePhones;
-};
+  // возвращает id активной категории
+  const activeCategoryId = getActiveCategoryId(ownProps);
 
+  // фильтр - сортироврка по категориям.
+  const applyCategory = item => R.equals(
+    getActiveCategoryId(ownProps),
+    R.prop('categoryId', item)
+  )
+
+  // приминяет все фильтры и возвращает map-ом новый массив
+  const phones = R.compose(
+    R.filter(applySearch),
+    R.when(R.always(activeCategoryId), R.filter(applyCategory)),
+    R.map(id => getPhoneById(state, id))
+  )(state.phonesPageReducer.ids)
+
+  return phones
+}
 
 /* добавляем новый метод, который будет возвращать количество отрендереных товаров.*/
 export const getRenderedPhonesLength = state => {
@@ -82,34 +84,7 @@ export const getCategories = state => {
   return R.values(state.categoriesReducer)
 }
 
-/* Получает id-ки из собственных пропсов из match*/
+/* Получает id-к из собственных пропсов из match выбранную категорию*/
 export const getActiveCategoryId = ownProps => {
   return ownProps.match.params.id;
 }
-
-/* Правильная функция getPhones*/
-/*
-export const getPhones = state => {
-  const activeCategoryId = getActiveCategoryId(ownProps);
-
-  // фильтр - поиск из search
-  const applySearch = item => R.contains(
-    state.phonesPageReducer.search,
-    R.prop('name', item)
-  )
-
-  // фильтр - сортироврка по категориям.
-  const applyCategory = item => R.equals(
-    getActiveCategoryId(ownProps),
-    R.prop('categoryId', item)
-  )
-
-  // приминяем все фильтры и используем map
-  const phones = R.compose(
-    R.filter(applySearch),
-    R.when(R.always(activeCategoryId), R.filter(applyCategory)),
-    R.map(id => getPhoneById(state, id))
-  )(state.phonesPageReducer.ids)
-  return phones
-}
-*/

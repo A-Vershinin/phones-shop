@@ -1,5 +1,5 @@
 import R from 'ramda';
-import { FETCH_CATEGORIES_START, FETCH_CATEGORIES_SUCCESS, FETCH_CATEGORIES_FAILURE } from '../constans/categoriesTypes';
+import { FETCH_CATEGORIES_SUCCESS } from '../constans/categoriesTypes';
 
 const initialState = {};
 

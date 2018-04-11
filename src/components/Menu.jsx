@@ -6,7 +6,7 @@ class Menu extends PureComponent {
 		return (
 			<nav className="navbar navbar-default">
 				<div className="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1"
+		      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1"
 					aria-expanded="false">
 		        <span className="sr-only">Toggle navigation</span>
 		        <span className="icon-bar"></span>

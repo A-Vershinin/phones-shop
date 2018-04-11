@@ -35,8 +35,7 @@ class Phones extends PureComponent {
     
     return (
       <PageTemplate>
-        <h1>Phones components</h1>
-        <Link to='/' style={{ display: 'block', marginBottom: '20px'}}>Back to home</Link>
+        <h1>Popular phones</h1>
         <div className='books row'>
           {phones.map((phone, index) => this.renderPhone(phone, index))}
         </div>
