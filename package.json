@@ -35,7 +35,7 @@
     "html-webpack-plugin": "2.29.0",
     "isomorphic-fetch": "^2.2.1",
     "jest": "20.0.4",
-    "jsdom": "11.7.0",
+    "jsdom": "^11.7.0",
     "jsdom-global": "3.0.2",
     "karma-coverage": "^1.1.1",
     "mocha": "^5.0.5",
@@ -68,7 +68,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "NODE_ENV=development mocha --compilers js:babel-core/register -r jsdom-global/register src/**/*.spec.js",
+    "testJest": "node scripts/test.js --env=jsdom",
+    "test": "NODE_ENV=development mocha --recursive --compilers js:babel-core/register -r jsdom-global/register src/**/*.spec.js",
     "cover": "NODE_ENV=development nyc mocha --compilers js:babel-core/register -r jsdom-global/register src/**/*.spec.js"
   },
   "jest": {
@@ -79,9 +80,9 @@
       "<rootDir>/config/polyfills.js"
     ],
     "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}",
-      "<rootDir>/src/**/*.spec.js"
+      "<rootDir>/src/**/*.spec.js",
+      "<rootDir>/src/**/tests/**/*.{js,jsx,mjs}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
