@@ -70,7 +70,8 @@
     "build": "node scripts/build.js",
     "testJest": "node scripts/test.js --env=jsdom",
     "test": "NODE_ENV=development mocha --recursive --compilers js:babel-core/register -r jsdom-global/register src/**/*.spec.js",
-    "cover": "NODE_ENV=development nyc mocha --compilers js:babel-core/register -r jsdom-global/register src/**/*.spec.js"
+    "cover": "NODE_ENV=development nyc mocha --compilers js:babel-core/register -r jsdom-global/register src/**/*.spec.js",
+    "testDebug": "NODE_ENV=test node --inspect node_modules/.bin/jest --runInBand --config"
   },
   "jest": {
     "collectCoverageFrom": [
