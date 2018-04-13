@@ -3,7 +3,6 @@ import { FETCH_CATEGORIES_SUCCESS } from '../constans/categoriesTypes';
 
 const initialState = {};
 
-
 const categoriesReducer = (state = initialState, {type, payload}) => {
   switch (type) {
     case FETCH_CATEGORIES_SUCCESS:

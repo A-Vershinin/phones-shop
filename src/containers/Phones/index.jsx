@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import Phones from '../../components/Phones';
+import Phones from '../../components/Phones.jsx';
 import { fetchPhonesAction, loadMorePhonesAction }  from '../../actions/phonesAction';
 import { addPhoneToBasketAction } from '../../actions/basketAction';
 import { fetchCategoriesAction } from '../../actions//categoriesAction.js';
