@@ -4,7 +4,7 @@ import { random } from 'faker';
 import { addPhoneToBasketAction, removePhoneFromBasket, cleanBasket, basketCheckout } from '../../actions/basketAction';
 import basketReducer from '../basketReducer';
 
-describe.only('basketReducer', () => {
+describe('basketReducer', () => {
 	const initialState = [];
 
 	const mockID = random.number();
