@@ -6,7 +6,6 @@ import { random, lorem, commerce, image } from 'faker';
 import { FETCH_PHONES_SUCCESS, FETCH_PHONE_BY_ID_SUCCESS } from '../../constans/phoneActionTypes'
 import { fetchPhonesAction, loadMorePhonesAction, fetchPhoneById } from '../../actions/phonesAction';
 import { phonesReducer } from '../phonesReducer';
-// import { fetchPhoneById as fetchPhoneByIdApi } from "../../api/fetchPhonesApi";
 
 const item = {
 	"id": random.number,
@@ -22,7 +21,7 @@ const item = {
 	"display": lorem.words,
 	"battery": lorem.words,
 	"memory": lorem.words
-}
+};
 
 
 describe('phonesReducer', () => {

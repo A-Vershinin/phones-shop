@@ -3,9 +3,9 @@ import * as types from '../../constans/searchActionTypes';
 import * as actions from '../searchAction';
 
 
-describe('search actions', () => {
+describe('searchPhoneAction', () => {
 
-	it('searchPhoneAction should create SEARCH_PHONE action', () => {
+	it('should handle SEARCH_PHONE', () => {
 		const payload = {
 			type: types.SEARCH_PHONE,
 			text: 'hello'

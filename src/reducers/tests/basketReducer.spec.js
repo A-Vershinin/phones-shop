@@ -4,6 +4,7 @@ import { random } from 'faker';
 import { addPhoneToBasketAction, removePhoneFromBasket, cleanBasket, basketCheckout } from '../../actions/basketAction';
 import basketReducer from '../basketReducer';
 
+
 describe('basketReducer', () => {
 	const initialState = [];
 
