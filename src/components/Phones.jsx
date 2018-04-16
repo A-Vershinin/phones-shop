@@ -4,7 +4,7 @@ import PageTemplate from './PageTemplate';
 import R from 'ramda';
 
 
-class Phones extends PureComponent {
+export default class Phones extends PureComponent {
   renderPhone(phone, index) {
     const {addPhoneToBasket} = this.props;
     const numberSymbolsInString = 85;
@@ -32,7 +32,7 @@ class Phones extends PureComponent {
 
   render() {
     const { phones, loadMorePhones } = this.props;
-    
+
     return (
       <PageTemplate>
         <h1>Popular phones</h1>
@@ -50,6 +50,3 @@ class Phones extends PureComponent {
     );
   }
 }
-
-
-export default Phones;
