@@ -11,33 +11,28 @@ export const fetchPhonesStartAction= () => ({
   type: FETCH_PHONES_START
 });
 
-export const fetchPhonesSuccesPhonesAction= (phones) => ({
+export const fetchPhonesSuccesPhonesAction = (phones) => ({
   type: FETCH_PHONES_SUCCESS,
   payload: phones
 });
 
-export const fetchPhonesSuccesDataAction= (data) => ({
+export const fetchPhonesSuccesDataAction = (data) => ({
   type: FETCH_PHONES_SUCCESS,
   payload: data
 });
 
-export const fetchPhonesFailureAction= (err) => ({
+export const fetchPhonesFailureAction = (err) => ({
   type: FETCH_PHONES_FAILURE,
   payload: err,
   error: true
 });
 
-export const fetchPhonesAction = () => async (dispatch, getState) => {
+export const fetchPhonesAction = () => async (dispatch) => {
   dispatch(fetchPhonesStartAction());
   try {
     const phones = await fetchPhonesApi();
 
     dispatch(fetchPhonesSuccesPhonesAction(phones));
-
-    /* получили объекты из стора*/
-    const data = getPhones(getState());
-
-    dispatch(fetchPhonesSuccesDataAction(data));
 
   } catch (err) {
     dispatch(fetchPhonesFailureAction(err));
@@ -49,11 +44,12 @@ export const loadMorePhonesStartAction = () => ({
   type: LOAD_MORE_PHONES_START
 });
 
-
-export const loadMorePhonesSuccessAction = (phones) => ({
-  type: LOAD_MORE_PHONES_SUCCESS,
-  payload: phones
-});
+export function loadMorePhonesSuccessAction(phones) {
+  return {
+    type: LOAD_MORE_PHONES_SUCCESS,
+    payload: phones
+  }
+};
 
 export const loadMorePhonesFailureAction = (err) => ({
   type: LOAD_MORE_PHONES_FAILURE,
@@ -67,6 +63,7 @@ export const loadMorePhonesAction = () => async (dispatch, getState) => {
 
   try {
     const phones = await loadMorePhonesApi(offset)
+
     dispatch(loadMorePhonesSuccessAction(phones));
 
   } catch (err) {
@@ -98,6 +95,8 @@ export const fetchPhoneById = (id) => async dispatch => {
   dispatch(fetchPhoneByIdStart());
 
   try {
+    // throw ({ status: 500 })
+
     const phone = await fetchPhoneByIdApi(id);
     dispatch(fetchPhoneByIdSuccess(phone));
 

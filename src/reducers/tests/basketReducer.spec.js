@@ -4,7 +4,7 @@ import { random } from 'faker';
 import * as acts from '../../actions/basketAction';
 import basketReducer from '../basketReducer';
 
-import { mockID } from './utils';
+import { mockID } from '../../utils/utilsReducers';
 
 describe('basketReducer', () => {
 	const initialState = [];

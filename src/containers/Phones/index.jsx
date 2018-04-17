@@ -19,7 +19,6 @@ class PhonesContainer extends PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(getPhones(state, ownProps))
   return {
     phones: getPhones(state, ownProps),
   }

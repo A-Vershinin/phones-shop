@@ -2,7 +2,7 @@ import { random, lorem, commerce, image } from 'faker';
 
 // "id": random.uuid(),
 
-const number = 1;
+export const number = 1;
 
 export const item = {
 	"id": number,

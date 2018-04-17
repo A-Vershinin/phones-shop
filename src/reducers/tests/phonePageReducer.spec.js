@@ -2,7 +2,7 @@ import { expect, assert } from 'chai';
 import * as acts from '../../actions/phonesAction';
 import { phonePageReducer } from '../phonePageReducer';
 
-import { dumpPhones } from './utils';
+import { dumpPhones } from '../../utils/utilsReducers';
 
 describe('phonePageReducer', () => {
 	const initialState = {

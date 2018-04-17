@@ -4,7 +4,7 @@ import { lorem } from 'faker';
 import * as acts from '../../actions/categoriesAction';
 import categoriesReducer  from '../categoriesReducer';
 
-import { dumpItem } from './utils';
+import { dumpItem } from '../../utils/utilsReducers';
 
 describe('categoriesReducer', () => {
 	const initialState = {};

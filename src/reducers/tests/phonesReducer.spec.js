@@ -3,7 +3,7 @@ import { random, lorem, commerce, image } from 'faker';
 import * as acts from '../../actions/phonesAction';
 import { phonesReducer } from '../phonesReducer';
 
-import { dumpPhones, item } from './utils';
+import { dumpPhones, item } from '../../utils/utilsReducers';
 
 describe('phonesReducer', () => {
 	const initialState = {

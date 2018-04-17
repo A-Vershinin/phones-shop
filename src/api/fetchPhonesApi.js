@@ -1,24 +1,17 @@
 import R from 'ramda';
 import phones from './mockPhones';
-
-const phonesUrl = 'http://www.mocky.io/v2/5accd2a73200005c00776564';
+import { phonesUrl } from './utils';
 
 export const fetchPhones = async () => {
-  return new Promise((resolve, reject) => {
-    fetch(phonesUrl)
+  return fetch(phonesUrl)
     .then((response) => {
       if (!response.ok) {
-        throw Error(response.statusText);
+        throw response;
       }
       return response;
     })
     .then((response) => response.json())
-    .then(data => {resolve(data.phones)})
-  });
-
-  // return new Promise(resolve => {
-  //   resolve(phones);
-  // });
+    .then(data => data.phones)
 };
 
 
