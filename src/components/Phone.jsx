@@ -66,10 +66,10 @@ class Phone extends PureComponent {
   }
 
   render() {
-    const {phone} = this.props;
+    const {phone, pending} = this.props;
     // console.log(phone);
 
-    return (
+    return pending ? (<div>Loading...</div>) : (
       <div className='view-container'>
         <div className='container'>
           <div className='row'>

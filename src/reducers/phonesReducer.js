@@ -16,9 +16,6 @@ export const phonesReducer = (state = initialState, {type, payload}) => {
       const moreValues = R.indexBy(R.prop('id'), payload)
       return R.merge(state, moreValues)
 
-    case FETCH_PHONE_BY_ID_SUCCESS:
-      return R.assoc(payload.id, payload, state)
-
     default:
       return state;
   }

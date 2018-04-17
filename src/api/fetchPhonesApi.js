@@ -32,6 +32,8 @@ export const loadMorePhones = async (offset) => {
 export const fetchPhoneById = async (id) => {
   return new Promise((resolve, reject) => {
     const phone = R.find(R.propEq('id', id), phones)
-    resolve(phone)
+    setTimeout(() => {
+      resolve(phone)
+    }, 1000);
   })
 }

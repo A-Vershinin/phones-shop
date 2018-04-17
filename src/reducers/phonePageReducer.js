@@ -1,19 +1,25 @@
 import R from 'ramda';
-import { FETCH_PHONE_BY_ID_SUCCESS } from '../constans/phoneActionTypes';
+import { FETCH_PHONE_BY_ID_SUCCESS, FETCH_PHONE_BY_ID_START } from '../constans/phoneActionTypes';
 
 
 const initialState = {
-  id: null
+  pending: false,
+  data: {}
 };
 
 
 export const phonePageReducer = (state = initialState, {type, payload}) => {
   switch (type) {
-  case FETCH_PHONE_BY_ID_SUCCESS:
-    return R.merge(state, {
-      id: R.prop('id', payload)
-    })
+    case FETCH_PHONE_BY_ID_START:
+      return { ...state, pending: true };
+
+    case FETCH_PHONE_BY_ID_SUCCESS:
+      // return R.merge(state, {
+      //   id: R.prop('id', payload)
+      // })
+      return {...state, data: payload, pending: false };
+
     default:
       return state
-  }
+    }
 }

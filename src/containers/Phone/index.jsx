@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Phone from '../../components/Phone';
+import Phone from '../../components/Phone.jsx';
 import { fetchPhoneById } from '../../actions/phonesAction';
 import { addPhoneToBasketAction } from '../../actions/basketAction';
-import { getPhoneById } from '../../selectors/selectors';
+import { getPhone } from '../../selectors/selectors';
 
 class PhoneContainer extends PureComponent {
   componentDidMount () {
@@ -13,18 +13,20 @@ class PhoneContainer extends PureComponent {
   }
 
   render() {
-    // console.log(this.props)
+    const { phone } = this.props;
     return (
-      <div>
-        <Phone {...this.props}/>
-      </div>
+      <Phone
+         {...this.props}
+         phone={phone.data}
+         pending={phone.pending}
+      />
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    phone: getPhoneById(state, state.phonePageReducer.id),
+    phone: getPhone(state),
   }
 }
 

@@ -6,6 +6,9 @@ import R from 'ramda';
 */
 
 // возвращает объект phone по переданому id
+export const getPhone = (state, id) => state.phonePageReducer;
+
+// возвращает объект phone по переданому id сортировки по категориям и поиска
 export const getPhoneById = (state, id) => R.prop(id, state.phonesReducer);
 
 // возвращает массив объектов phones

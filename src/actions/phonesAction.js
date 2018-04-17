@@ -79,10 +79,14 @@ export const fetchPhoneByIdStart = () => ({
   type: FETCH_PHONE_BY_ID_START
 });
 
-export const fetchPhoneByIdSuccess = (phone) => ({
-  type: FETCH_PHONE_BY_ID_SUCCESS,
-  payload: phone
-});
+export function fetchPhoneByIdSuccess(phone) {
+  console.log(phone)
+  return {
+    type: FETCH_PHONE_BY_ID_SUCCESS,
+    payload: phone
+
+  }
+};
 
 export const fetchPhoneByIdFailure = (err) => ({
   type: FETCH_PHONE_BY_ID_FAILURE,

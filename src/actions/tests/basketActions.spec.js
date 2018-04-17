@@ -42,7 +42,7 @@ describe('basket actions', () => {
 		const array = [str];
 
 		const state = acts.basketCheckout(array);
-		debugger
+
 		assert.deepEqual(state, array);
 	});
 });
