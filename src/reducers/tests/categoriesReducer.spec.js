@@ -4,6 +4,8 @@ import { lorem } from 'faker';
 import * as acts from '../../actions/categoriesAction';
 import categoriesReducer  from '../categoriesReducer';
 
+import { dumpItem } from './utils';
+
 describe('categoriesReducer', () => {
 	const initialState = {};
 
@@ -13,11 +15,6 @@ describe('categoriesReducer', () => {
 	});
 
 	it('Should handle FETCH_CATEGORIES_SUCCESS', async () => {
-
-    const dumpItem = {
-      "id": 1,
-      "name": lorem.word()
-    };
 
     const dumpArrayItems = [dumpItem];
 

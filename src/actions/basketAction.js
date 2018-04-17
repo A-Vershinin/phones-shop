@@ -15,6 +15,5 @@ export const cleanBasket = ()  => ({
 });
 
 export const basketCheckout = phones => () => {
-  console.log(phones)
   alert(JSON.stringify(phones));
 }

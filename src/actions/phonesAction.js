@@ -80,7 +80,6 @@ export const fetchPhoneByIdStart = () => ({
 });
 
 export function fetchPhoneByIdSuccess(phone) {
-  console.log(phone)
   return {
     type: FETCH_PHONE_BY_ID_SUCCESS,
     payload: phone

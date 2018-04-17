@@ -21,7 +21,7 @@ export const phonesPageReducer = (state = initialState, action) => {
       return R.merge(state, {
        ids: R.concat(ids, state.ids)
       })
-      
+
     case SEARCH_PHONE:
       return R.merge(state, {
         search: action.payload
