@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import SideBar from '../../components/SideBar';
 
 
-class SideBarContainer extends PureComponent {
+export class SideBarContainerz extends PureComponent {
   render() {
     return (<SideBar/>);
   }
@@ -16,4 +16,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(SideBarContainer));
+export default withRouter(connect(mapStateToProps)(SideBarContainerz));

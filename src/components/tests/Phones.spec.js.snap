@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders dasdcorrectly 1`] = `
+<PageTemplate>
+  <h1>
+    Popular phones
+  </h1>
+  <div
+    className="books row"
+  >
+    <div
+      className="col-xs-6 col-sm-4 col-lg-4 col-md-4 book-list"
+    >
+      <div
+        className="thumbnail"
+      >
+        <img
+          alt="Apple iPhone 5c"
+          className="img-thumbnail"
+          src="/uploads/iphone5c-selection-hero-2013.png"
+        />
+        <div
+          className="caption"
+        >
+          <h4
+            className="pull-right"
+          >
+            $
+            823
+          </h4>
+          <h4>
+            <Link
+              replace={false}
+              to="/phones/1"
+            >
+              Apple iPhone 5c
+            </Link>
+          </h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies lorem odio,...
+          </p>
+          <p
+            className="itemButton"
+          >
+            <button
+              className="btn btn-primary"
+              onClick={[Function]}
+            >
+              Buy Now!
+            </button>
+            <Link
+              className="btn btn-default"
+              replace={false}
+              to="/phones/1"
+            >
+              More info
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-12"
+    >
+      <button
+        className="pull-right btn btn-primary"
+        onClick={
+          Array [
+            Object {
+              "battery": "1480 mAh",
+              "camera": "8mp (3264x2448)",
+              "categoryId": "1",
+              "cpu": "1.3GHz Apple A6",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies lorem odio, at laoreet tellus sodales in. Nullam maximus eros ut tortor ultricies rutrum. Aliquam euismod lacus non est egesta",
+              "display": "4.0 326 pixel density",
+              "id": "1",
+              "image": "/uploads/iphone5c-selection-hero-2013.png",
+              "memory": "16GB, 32GB and RAM 1 GB",
+              "name": "Apple iPhone 5c",
+              "price": 823,
+              "size": "124.4mm x 59.2mm x 8.97mm (4.9 x 2.33 x 0.35)",
+              "weight": "132 grams (4.7 ounces) with battery",
+            },
+          ]
+        }
+      >
+        Load More
+      </button>
+    </div>
+  </div>
+</PageTemplate>
+`;
+
+exports[`Phones renders correctly 1`] = `
+<PageTemplate>
+  <h1>
+    Popular phones
+  </h1>
+  <div
+    className="books row"
+  >
+    <div
+      className="col-xs-6 col-sm-4 col-lg-4 col-md-4 book-list"
+    >
+      <div
+        className="thumbnail"
+      >
+        <img
+          alt="Apple iPhone 5c"
+          className="img-thumbnail"
+          src="/uploads/iphone5c-selection-hero-2013.png"
+        />
+        <div
+          className="caption"
+        >
+          <h4
+            className="pull-right"
+          >
+            $
+            823
+          </h4>
+          <h4>
+            <Link
+              replace={false}
+              to="/phones/1"
+            >
+              Apple iPhone 5c
+            </Link>
+          </h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies lorem odio,...
+          </p>
+          <p
+            className="itemButton"
+          >
+            <button
+              className="btn btn-primary"
+              onClick={[Function]}
+            >
+              Buy Now!
+            </button>
+            <Link
+              className="btn btn-default"
+              replace={false}
+              to="/phones/1"
+            >
+              More info
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-12"
+    >
+      <button
+        className="pull-right btn btn-primary"
+        onClick={
+          Array [
+            Object {
+              "battery": "1480 mAh",
+              "camera": "8mp (3264x2448)",
+              "categoryId": "1",
+              "cpu": "1.3GHz Apple A6",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies lorem odio, at laoreet tellus sodales in. Nullam maximus eros ut tortor ultricies rutrum. Aliquam euismod lacus non est egesta",
+              "display": "4.0 326 pixel density",
+              "id": "1",
+              "image": "/uploads/iphone5c-selection-hero-2013.png",
+              "memory": "16GB, 32GB and RAM 1 GB",
+              "name": "Apple iPhone 5c",
+              "price": 823,
+              "size": "124.4mm x 59.2mm x 8.97mm (4.9 x 2.33 x 0.35)",
+              "weight": "132 grams (4.7 ounces) with battery",
+            },
+          ]
+        }
+      >
+        Load More
+      </button>
+    </div>
+  </div>
+</PageTemplate>
+`;

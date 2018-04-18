@@ -1,10 +1,22 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import PageTemplate from './PageTemplate';
 import R from 'ramda';
 
 
 export default class Phones extends PureComponent {
+
+  static propTypes = {
+    loadMorePhones: PropTypes.arrayOf(PropTypes.any),
+    phones: PropTypes.arrayOf(PropTypes.any),
+  };
+
+  static defaultProps = {
+    loadMorePhones: [],
+    phones: [],
+  };
+
   renderPhone(phone, index) {
     const {addPhoneToBasket} = this.props;
     const numberSymbolsInString = 85;
